@@ -9,7 +9,11 @@
 import UIKit
 
 class Book: NSObject {
+    
     var title:String?
     var author:String?
     var imageURL:String?
+    var publishDate:String?
+    var descriptionInfo: String?
+    var bigThumbnail:String?
 }

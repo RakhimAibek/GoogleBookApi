@@ -14,6 +14,7 @@
 		E3E0C2811EFB74A30005A238 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E0C27F1EFB74A30005A238 /* LaunchScreen.storyboard */; };
 		E3E0C2891EFBACEE0005A238 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0C2881EFBACEE0005A238 /* Book.swift */; };
 		E3E0C28B1EFBB1010005A238 /* BookItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0C28A1EFBB1010005A238 /* BookItemTableViewCell.swift */; };
+		E3E0C28D1EFBDA330005A238 /* BookDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0C28C1EFBDA330005A238 /* BookDescriptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E3E0C2821EFB74A30005A238 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3E0C2881EFBACEE0005A238 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		E3E0C28A1EFBB1010005A238 /* BookItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookItemTableViewCell.swift; sourceTree = "<group>"; };
+		E3E0C28C1EFBDA330005A238 /* BookDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDescriptionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				E3E0C2761EFB74A30005A238 /* AppDelegate.swift */,
-				E3E0C2881EFBACEE0005A238 /* Book.swift */,
 				E3E0C28A1EFBB1010005A238 /* BookItemTableViewCell.swift */,
+				E3E0C28C1EFBDA330005A238 /* BookDescriptionViewController.swift */,
+				E3E0C2881EFBACEE0005A238 /* Book.swift */,
 				E3E0C2781EFB74A30005A238 /* ViewController.swift */,
 				E3E0C27A1EFB74A30005A238 /* Main.storyboard */,
 				E3E0C27D1EFB74A30005A238 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				E3E0C2771EFB74A30005A238 /* AppDelegate.swift in Sources */,
 				E3E0C2891EFBACEE0005A238 /* Book.swift in Sources */,
 				E3E0C28B1EFBB1010005A238 /* BookItemTableViewCell.swift in Sources */,
+				E3E0C28D1EFBDA330005A238 /* BookDescriptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

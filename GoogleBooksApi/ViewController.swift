@@ -26,7 +26,6 @@ class ViewController: UIViewController {
             if (error != nil) {
                 print(error?.localizedDescription)
             } else {
-                
                 //try - если вышла ошибка, программа не будет идти дальше
                 //allowFragments - позволяет игнорировать объекты кроме массива
                 //getting JSON object
@@ -39,9 +38,12 @@ class ViewController: UIViewController {
                     self.books = []
                     for item in items {
                         if let volumeInfo = item["volumeInfo"] as? [String: AnyObject] {
+                            
                             //instance of class Book
                             let book = Book()
                             book.title = volumeInfo["title"] as? String
+                            book.publishDate = volumeInfo["publishedDate"] as? String
+                            book.descriptionInfo = volumeInfo["description"] as? String
                             
                             if let authors = volumeInfo["authors"] as? [String] {
                                 var creators = " "
@@ -50,16 +52,13 @@ class ViewController: UIViewController {
                                 }
                                 book.author = creators
                             }
-                            
-                            
-                            
                             if let imageLinks = volumeInfo["imageLinks"] as? [String: String] {
-                                book.imageURL = imageLinks["thumbnail"]
+                                book.imageURL = imageLinks["smallThumbnail"]
+                                book.bigThumbnail = imageLinks["thumbnail"]
                             }
                             self.books.append(book)
                         }
                     }
-                    print(self.books)
                     
                     //to immediately display data in tableViewCell
                     DispatchQueue.main.async {
@@ -69,6 +68,17 @@ class ViewController: UIViewController {
                 }
             }
         }.resume()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueDetailBook" {
+            if let toViewBookController = segue.destination as? BookDescriptionViewController {
+                //to choose selected row
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    toViewBookController.book = books[indexPath.row]
+                }
+            }
+        }
     }
 }
 
@@ -98,6 +108,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
+    
+   
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "segueDetailBook", sender: self)
+        
+    }
+    
 }
 
 // to allow download Image from some Url
@@ -109,7 +128,7 @@ extension UIImageView {
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription as Any)
                 } else {
                     if let image = UIImage(data: data!) {
                         //to immediately display image in tableViewCell
